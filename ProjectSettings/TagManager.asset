@@ -6,6 +6,15 @@ TagManager:
   tags:
   - EnemyCard
   - PlayerCard
+  - Bouncer
+  - BigBouncer40
+  - BigBouncer30
+  - FallZone
+  - Obstacle
+  - Bonus
+  - Ball
+  - Meteorite
+  - Heart
   layers:
   - Default
   - TransparentFX
