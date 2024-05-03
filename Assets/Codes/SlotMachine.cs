@@ -15,12 +15,12 @@ public class SlotMachine : MonoBehaviour
     public Button launchButton;
     private int gems;
     public Text gems_counter;
-    private int[] bets = {1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000};
-    private int bet_chosen = 0;
+    private int[] levels = {1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000};
+    private int level_chosen = 0;
     private int coins;
     private int combo_multiplier = 0;
     public Text coins_counter;
-    public Text bet_counter;
+    public Text level_counter;
     public AudioSource spinning;
     public AudioSource sounds;
     public AudioClip[] sound_array;
@@ -75,43 +75,43 @@ void Start()
             }
         }
     }
-public void IncreaseBet()
+public void Increaselevel()
 {
-    if(bet_chosen < bets.Length-1)
+    if(level_chosen < levels.Length-1)
     {
-        bet_chosen++;
+        level_chosen++;
         sounds.PlayOneShot(sound_array[5]);
     }
     else
     {
-        bet_chosen = 0;
+        level_chosen = 0;
         sounds.PlayOneShot(sound_array[5]);
     }
 }
-public void DecreaseBet()
+public void Decreaselevel()
 {
-    if(bet_chosen > 0)
+    if(level_chosen > 0)
     {
-        bet_chosen--;
+        level_chosen--;
         sounds.PlayOneShot(sound_array[5]);
     }
     else
     {
-        bet_chosen = bets.Length-1;
+        level_chosen = levels.Length-1;
         sounds.PlayOneShot(sound_array[5]);
     }
 }
 void ToggleSpinning()
     {
-        if (!isSpinning && gems >= bets[bet_chosen])
+        if (!isSpinning && gems >= levels[level_chosen])
         {
-            gems -= bets[bet_chosen];
+            gems -= levels[level_chosen];
             PlayerPrefs.SetInt("Gems", gems);
             isSpinning = true;
             StartCoroutine(SpinSlots());
             spinning.Play();
         }
-        else if(!isSpinning && gems < bets[bet_chosen])
+        else if(!isSpinning && gems < levels[level_chosen])
         {
             sounds.PlayOneShot(sound_array[3]);
             Debug.Log("Not enough gems!");
@@ -185,7 +185,7 @@ bool CheckForHorizontalWins()
                 int iconIndex = System.Array.IndexOf(icons, firstIcon);
                 if (iconIndex != -1) {
                 Debug.Log($"Horizontal win detected.");
-                coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1); // Example calculation
+                coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1); // Example calculation
                 coins_counter.text = coins.ToString();
                 win = true;
             }
@@ -217,7 +217,7 @@ bool CheckVerticalFive()
             if (allMatch) {
                 int iconIndex = System.Array.IndexOf(icons, firstIcon);
                 Debug.Log($"Vertical line of 5 detected with icon index {iconIndex} at column {col}.");
-                coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+                coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
                 Debug.Log($"Coins won for Vertical Line of 5: {coins}");
                 coins_counter.text = coins.ToString();
                 win = true; // Exit after finding the first vertical line of five to prevent further processing
@@ -241,7 +241,7 @@ bool CheckForDiagonalWins()
                 rows[row].slots[col].GetComponent<Image>().sprite != null) {
                 int iconIndex = System.Array.IndexOf(icons, rows[row].slots[col].GetComponent<Image>().sprite);
                 Debug.Log($"Diagonal win with icon index {iconIndex} from top-left to bottom-right starting at row {row}, col {col}");
-                coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+                coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
                 Debug.Log($"Coins won: {coins}");
                 coins_counter.text = coins.ToString();
             }
@@ -257,7 +257,7 @@ bool CheckForDiagonalWins()
                 rows[row].slots[col].GetComponent<Image>().sprite != null) {
                 int iconIndex = System.Array.IndexOf(icons, rows[row].slots[col].GetComponent<Image>().sprite);
                 Debug.Log($"Diagonal win with icon index {iconIndex} from bottom-left to top-right starting at row {row}, col {col}");
-                coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+                coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
                 Debug.Log($"Coins won: {coins}");
                 coins_counter.text = coins.ToString();
             }
@@ -313,7 +313,7 @@ bool CheckCrossPattern()
                     // Find the index of the icon for additional context or multiplier calculations
                     int iconIndex = System.Array.IndexOf(icons, centerSprite);
                     Debug.Log($"Cross win with icon index {iconIndex} centered at row {row}, col {col}");
-                    coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+                    coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
                     Debug.Log($"Coins won: {coins}");
                     coins_counter.text = coins.ToString();
                     win = true;
@@ -347,7 +347,7 @@ bool CheckChromosomePattern()
         if (isChromosome) {
             int iconIndex = System.Array.IndexOf(icons, centerSprite);
             Debug.Log($"Chromosome pattern detected with icon index {iconIndex}.");
-            coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+            coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
             Debug.Log($"Coins won for Chromosome: {coins}");
             coins_counter.text = coins.ToString();
             win = true;
@@ -375,7 +375,7 @@ bool CheckPyramidPatterns()
         if (upright) {
             int iconIndex = System.Array.IndexOf(icons, apexSprite);
             Debug.Log($"Upside-down Pyramid pattern detected with icon index {iconIndex} at apex.");
-            coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+            coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
             Debug.Log($"Coins won: {coins}");
             coins_counter.text = coins.ToString();
             win = true;
@@ -396,7 +396,7 @@ bool CheckPyramidPatterns()
         if (upsideDown) {
             int iconIndex = System.Array.IndexOf(icons, baseSprite);
             Debug.Log($"Pyramid pattern detected with icon index {iconIndex} at base.");
-            coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+            coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
             Debug.Log($"Coins won: {coins}");
             coins_counter.text = coins.ToString();
         }
@@ -415,7 +415,7 @@ bool CheckDoublePyramidPatterns()
     // If both pyramid patterns are detected
     if (upright && upsideDown) {
         Debug.Log("Double Pyramid pattern detected.");
-        coins += bets[bet_chosen] * combo_multiplier; // Apply the double pyramid multiplier
+        coins += levels[level_chosen] * combo_multiplier; // Apply the double pyramid multiplier
         Debug.Log($"Coins won for Double Pyramid: {coins}");
         coins_counter.text = coins.ToString();
         win = true;
@@ -472,7 +472,7 @@ bool CheckDiamondPattern()
                 int iconIndex = System.Array.IndexOf(icons, centerSprite);
                 if (iconIndex != -1) {
                     Debug.Log($"Diamond pattern detected with icon index {iconIndex} in configuration starting at row {row + r}.");
-                    coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);  // Calculate the winnings
+                    coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);  // Calculate the winnings
                     Debug.Log($"Coins won for Diamond: {coins}");
                     coins_counter.text = coins.ToString();  // Play the winning sound
                     win = true;
@@ -507,7 +507,7 @@ bool CheckInfinityPattern()
             // Find the index of the icon for additional context or multiplier calculations
             int iconIndex = System.Array.IndexOf(icons, rows[0].slots[1].GetComponent<Image>().sprite);
             Debug.Log($"Infinity pattern detected with icon index {iconIndex}.");
-            coins += bets[bet_chosen] * combo_multiplier * (iconIndex + 1);
+            coins += levels[level_chosen] * combo_multiplier * (iconIndex + 1);
             Debug.Log($"Coins won for Infinity: {coins}");
             coins_counter.text = coins.ToString();
             win = true;
@@ -545,7 +545,7 @@ bool CheckDoubleFivePattern()
             int iconIndex1 = System.Array.IndexOf(icons, firstColumnIcon);
             int iconIndex3 = System.Array.IndexOf(icons, thirdColumnIcon);
             Debug.Log($"Double Five pattern detected with icon indices {iconIndex1} and {iconIndex3}.");
-            coins += bets[bet_chosen] * combo_multiplier * ((iconIndex1 + 1) + (iconIndex3 + 1)); // Example calculation
+            coins += levels[level_chosen] * combo_multiplier * ((iconIndex1 + 1) + (iconIndex3 + 1)); // Example calculation
             Debug.Log($"Coins won for Double Five: {coins}");
             coins_counter.text = coins.ToString();
             sounds.PlayOneShot(sound_array[0]);
@@ -559,7 +559,7 @@ bool CheckDoubleFivePattern()
     {
         gems_counter.text = gems.ToString();
         coins_counter.text = coins.ToString();
-        bet_counter.text = "Bet: " + bets[bet_chosen].ToString();
+        level_counter.text = "level: " + levels[level_chosen].ToString();
     }
 }
 

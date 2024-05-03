@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a9d37f659dbcd314baab6e386d5a842d
   - enabled: 1
-    path: Assets/Scenes/BigSlot.unity
+    path: Assets/Scenes/BigMachine.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/CardGame.unity
+    path: Assets/Scenes/MarkGame.unity
     guid: 3ebe68b93c30473408191062df6ff443
   - enabled: 1
-    path: Assets/Scenes/LilSlot.unity
+    path: Assets/Scenes/LilMachine.unity
     guid: c87fb0742a2864c40b5aa10cd963aee7
   - enabled: 1
     path: Assets/Scenes/EndlessFly.unity

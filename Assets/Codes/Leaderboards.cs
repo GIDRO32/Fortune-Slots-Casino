@@ -15,7 +15,7 @@ public class Leaderboards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fly_record.text = "Highscore: "+spaceship_highscore.ToString("F0");
+        fly_record.text = "Highscore:\n"+spaceship_highscore.ToString("F0");
     }
     public void ResetScores()
     {

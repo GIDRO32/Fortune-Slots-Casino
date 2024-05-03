@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class BattleMode : MonoBehaviour
 {
-    public GameObject CardTemplate; // The card prefab
+    public GameObject UnitTemplate; // The Unit prefab
     [SerializeField]
-    private List<CardTypeSprites> suitsRanks = new List<CardTypeSprites>(); // Suits<Ranks>
-    public CardBattle[] PlayerCards; // Array for player's cards
-    public CardBattle[] EnemyCards; // Array for enemy's cards
+    private List<UnitTypeSprites> suitsRanks = new List<UnitTypeSprites>(); // Suits<Ranks>
+    public UnitBattle[] PlayerUnits; // Array for player's Units
+    public UnitBattle[] EnemyUnits; // Array for enemy's Units
     public GameObject[] targets;
     [SerializeField] private List<SlotRow> rows = new List<SlotRow>();
     public Sprite[] icons; // Assign in Inspector
@@ -18,8 +18,8 @@ public class BattleMode : MonoBehaviour
     public Button launchButton;
     public int initialHealth = 5;
     private int life_tokens = 10;
-    public Vector2[] PlayerCardPositions;
-    public Vector2[] EnemyCardPositions;
+    public Vector2[] PlayerUnitPositions;
+    public Vector2[] EnemyUnitPositions;
     public Text[] counters;
     private int enemy_healthbar = 50;
     public Slider healthbar_appear;
@@ -82,6 +82,8 @@ public class BattleMode : MonoBehaviour
                 ApplySlotMachineOutcome(); // Check slot machine outcome and apply effects
                 if(life_tokens == 0)
                 {
+                UpdateEnergy();
+                CalculateAndSaveEnergy();
                 sounds.PlayOneShot(clips[0]);
                 panels[1].SetActive(true);
                 panels[0].SetActive(false);
@@ -136,148 +138,148 @@ public class BattleMode : MonoBehaviour
 
 if (iconCounts[0] == 2) // If any 2 slots have the icon for Shield effect
     {
-        // Apply Shield effect on one random player card
-        List<CardBattle> activeCards = GetActivePlayerCards();
-        if (activeCards.Count > 0)
+        // Apply Shield effect on one random player Unit
+        List<UnitBattle> activeUnits = GetActivePlayerUnits();
+        if (activeUnits.Count > 0)
         {
-            CardBattle selectedCard = activeCards[Random.Range(0, activeCards.Count)];
-            selectedCard.Shield(); // Apply Shield() to one random active player card
+            UnitBattle selectedUnit = activeUnits[Random.Range(0, activeUnits.Count)];
+            selectedUnit.Shield(); // Apply Shield() to one random active player Unit
         }
     }
     else if (iconCounts[0] == 3) // If all 3 slots have the icon for Shield effect
     {
-        // Apply Shield effect on all player cards
-        foreach (CardBattle playerCard in PlayerCards)
+        // Apply Shield effect on all player Units
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.Shield();
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.Shield();
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
     // Check for Nectar effect condition (icon with index 1)
     else if (iconCounts[1] == 2) // If any 2 slots have the icon for Nectar effect
     {
-        List<CardBattle> activeCards = GetActivePlayerCards();
-        if (activeCards.Count > 0)
+        List<UnitBattle> activeUnits = GetActivePlayerUnits();
+        if (activeUnits.Count > 0)
         {
-            CardBattle selectedCard = activeCards[Random.Range(0, activeCards.Count)];
-            selectedCard.Nectar(); // Apply Nectar() to one random active player card
+            UnitBattle selectedUnit = activeUnits[Random.Range(0, activeUnits.Count)];
+            selectedUnit.Nectar(); // Apply Nectar() to one random active player Unit
         }
         
     }
     else if (iconCounts[1] == 3) // If all 3 slots have the icon for Nectar effect
     {
-        // Apply Nectar effect on all player cards
-        foreach (CardBattle playerCard in PlayerCards)
+        // Apply Nectar effect on all player Units
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.Nectar();
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.Nectar();
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
         else if (iconCounts[2] == 2) // If any 2 slots have the icon for Double attack effect
     {
         sounds.PlayOneShot(clips[3]);
-        EnemyCards[Random.Range(0, EnemyCards.Length)].AddHealth(3);
+        EnemyUnits[Random.Range(0, EnemyUnits.Length)].AddHealth(5);
         
     }
     else if (iconCounts[2] == 3) // If all 3 slots have the icon for Double effect
     {
         sounds.PlayOneShot(clips[3]);
-        foreach(CardBattle enemyCard in EnemyCards)
+        foreach(UnitBattle enemyUnit in EnemyUnits)
         {
-            enemyCard.AddHealth(5);
+            enemyUnit.AddHealth(5);
         }
     }
             else if (iconCounts[3] == 2) // If any 2 slots have the icon for Health effect
     {
-        // Apply Nectar effect on one random player card
-        PlayerCards[Random.Range(0, PlayerCards.Length)].AddHealth(5);
+        // Apply Nectar effect on one random player Unit
+        PlayerUnits[Random.Range(0, PlayerUnits.Length)].AddHealth(5);
         sounds.PlayOneShot(clips[1]);
-                foreach (CardBattle playerCard in PlayerCards)
+                foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
         
     }
     else if (iconCounts[3] == 3) // If all 3 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        // Apply Nectar effect on all player cards
-        foreach (CardBattle playerCard in PlayerCards)
+        // Apply Nectar effect on all player Units
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.AddHealth(5);
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.AddHealth(5);
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
                 else if (iconCounts[4] == 2) // If any 2 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[3]);
-        EnemyCards[Random.Range(0, EnemyCards.Length)].AddHealth(7);
+        EnemyUnits[Random.Range(0, EnemyUnits.Length)].AddHealth(7);
         
     }
     else if (iconCounts[4] == 3) // If all 3 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[3]);
-        foreach(CardBattle enemyCard in EnemyCards)
+        foreach(UnitBattle enemyUnit in EnemyUnits)
         {
-            enemyCard.AddHealth(5);
+            enemyUnit.AddHealth(5);
         }
     }
     else if (iconCounts[5] == 2) // If any 2 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        PlayerCards[Random.Range(0, PlayerCards.Length)].AddHealth(7);
-                foreach (CardBattle playerCard in PlayerCards)
+        PlayerUnits[Random.Range(0, PlayerUnits.Length)].AddHealth(7);
+                foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
         
     }
     else if (iconCounts[5] == 3) // If all 3 slots have the icon for Nectar effect
     {
-        // Apply Nectar effect on all player cards
-        foreach (CardBattle playerCard in PlayerCards)
+        // Apply Nectar effect on all player Units
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
             sounds.PlayOneShot(clips[1]);
-            playerCard.AddHealth(7);
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.AddHealth(7);
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
     else if (iconCounts[6] == 2) // If any 2 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        PlayerCards[Random.Range(0, PlayerCards.Length)].AddHealth(10);
-                foreach (CardBattle playerCard in PlayerCards)
+        PlayerUnits[Random.Range(0, PlayerUnits.Length)].AddHealth(10);
+                foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
         
     }
     else if (iconCounts[6] == 3) // If all 3 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        foreach (CardBattle playerCard in PlayerCards)
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.AddHealth(10);
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.AddHealth(10);
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
                 else if (iconCounts[7] == 2) // If any 2 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        PlayerCards[Random.Range(0, PlayerCards.Length)].RandomAction();
-                foreach (CardBattle playerCard in PlayerCards)
+        PlayerUnits[Random.Range(0, PlayerUnits.Length)].RandomAction();
+                foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
         
     }
     else if (iconCounts[7] == 3) // If all 3 slots have the icon for Nectar effect
     {
         sounds.PlayOneShot(clips[1]);
-        foreach (CardBattle playerCard in PlayerCards)
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.RandomAction();
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.RandomAction();
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
     else if (iconCounts[8] == 2) // If any 2 slots have the icon for Nectar effect
@@ -290,20 +292,20 @@ if (iconCounts[0] == 2) // If any 2 slots have the icon for Shield effect
     }
     else if (iconCounts[9] == 2) // If any 2 slots have the icon for Nectar effect
     {
-        List<CardBattle> activeCards = GetActivePlayerCards();
-        if (activeCards.Count > 0)
+        List<UnitBattle> activeUnits = GetActivePlayerUnits();
+        if (activeUnits.Count > 0)
         {
-            CardBattle selectedCard = activeCards[Random.Range(0, activeCards.Count)];
-            selectedCard.Attack(); // Apply Attack() to one random active player card
+            UnitBattle selectedUnit = activeUnits[Random.Range(0, activeUnits.Count)];
+            selectedUnit.Attack(); // Apply Attack() to one random active player Unit
         }
     }
     else if (iconCounts[9] == 3) // If all 3 slots have the icon for Nectar effect
     {
-        // Apply Nectar effect on all player cards
-        foreach (CardBattle playerCard in PlayerCards)
+        // Apply Nectar effect on all player Units
+        foreach (UnitBattle playerUnit in PlayerUnits)
         {
-            playerCard.Attack();
-            playerCard.enemyCard = targets[System.Array.IndexOf(PlayerCards, playerCard)];
+            playerUnit.Attack();
+            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
     else
@@ -331,8 +333,8 @@ public void AttackHealthBar(int damage) {
 
     private void UpdateEnergy()
     {
-        income = totalDamageDealt / 10; // Gain 1 energy unit per 10 damage
-        income = Mathf.Min(income, 5); // Cap the energy at 5 units
+        income = totalDamageDealt; // Gain 1 energy unit per 10 damage
+        income = Mathf.Min(income, 50); // Cap the energy at 5 units
     }
     void CalculateAndSaveEnergy()
     {
@@ -342,17 +344,17 @@ public void AttackHealthBar(int damage) {
         PlayerPrefs.SetInt("energy", energy); // Save the capped energy value back to PlayerPrefs
         PlayerPrefs.Save(); // Ensure data is written to disk
     }
-    private List<CardBattle> GetActivePlayerCards()
+    private List<UnitBattle> GetActivePlayerUnits()
     {
-    List<CardBattle> activeCards = new List<CardBattle>();
-    foreach (CardBattle card in PlayerCards)
+    List<UnitBattle> activeUnits = new List<UnitBattle>();
+    foreach (UnitBattle Unit in PlayerUnits)
     {
-        if (card.health > 0)
+        if (Unit.health > 0)
         {
-            activeCards.Add(card);
+            activeUnits.Add(Unit);
         }
     }
-    return activeCards;
+    return activeUnits;
 }
 
     void Update()
@@ -363,16 +365,16 @@ public void AttackHealthBar(int damage) {
         energy_counter.text = "+ " + energy.ToString() + " energy";
     }
     bool AllPlayersDefeated() {
-    // Check if all player cards are defeated
-    foreach (var playerCard in PlayerCards) {
-        if (playerCard.health > 0) return false;
+    // Check if all player Units are defeated
+    foreach (var playerUnit in PlayerUnits) {
+        if (playerUnit.health > 0) return false;
     }
     return true;
 }
     [System.Serializable]
-    public class CardTypeSprites
+    public class UnitTypeSprites
     {
-        public string typeName; // Name of the card type (suit)
+        public string typeName; // Name of the Unit type (suit)
         public List<Sprite> rankSprites; // Sprites for each rank within this type
     }
     [System.Serializable] // This makes it visible in the Unity Inspector
