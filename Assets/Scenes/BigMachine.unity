@@ -4757,7 +4757,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1588860977}
         m_TargetAssemblyTypeName: SlotMachine, Assembly-CSharp
-        m_MethodName: IncreaseBet
+        m_MethodName: Increaselevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5311,7 +5311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1588860977}
         m_TargetAssemblyTypeName: SlotMachine, Assembly-CSharp
-        m_MethodName: DecreaseBet
+        m_MethodName: Decreaselevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8355,7 +8355,7 @@ MonoBehaviour:
   launchButton: {fileID: 277349445}
   gems_counter: {fileID: 1208298550}
   coins_counter: {fileID: 1822428047}
-  level_counter: {fileID: 0}
+  level_counter: {fileID: 743228508}
   spinning: {fileID: 1618602260}
   sounds: {fileID: 59965883}
   sound_array:
