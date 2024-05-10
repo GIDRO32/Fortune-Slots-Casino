@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/BigMachine.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/MarkGame.unity
+    path: Assets/Scenes/CardGame.unity
     guid: 3ebe68b93c30473408191062df6ff443
   - enabled: 1
-    path: Assets/Scenes/LilMachine.unity
+    path: Assets/Scenes/LilSlot.unity
     guid: c87fb0742a2864c40b5aa10cd963aee7
   - enabled: 1
     path: Assets/Scenes/EndlessFly.unity
@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ReallyEndlessFly.unity
     guid: 0ab27d137ca1ddb4186edcd237831580
+  - enabled: 1
+    path: Assets/Scenes/MarkGame.unity
+    guid: 9b1b9afbe3e124df5ab65857373e97c9
+  - enabled: 1
+    path: Assets/Scenes/LilMachine.unity
+    guid: 20147f2eb619948a68ea633ecb4113fe
   m_configObjects: {}
