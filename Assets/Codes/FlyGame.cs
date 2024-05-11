@@ -27,24 +27,52 @@ public class FlyGame : MonoBehaviour
     public Slider health_bar;
     public AudioSource SFX;
     public AudioClip[] clips;
+    private List<GameObject> spawnedMeteorites = new List<GameObject>();
+    public SpriteRenderer bang;
     
 
 
     void Start()
     {
-        Time.timeScale = 0f;
+if(bang != null)
+{
+    Color spriteColor = bang.color;
+        spriteColor.a = 0f; // Set alpha to 0
+        bang.color = spriteColor;
+}
         Panels[0].SetActive(true);
         Panels[1].SetActive(false);
         Panels[2].SetActive(false);
-        StartCoroutine(SpawnMeteorites());
+        CanvasGroup transitionCanvasGroup3 = Panels[0].GetComponent<CanvasGroup>();
+        CanvasGroup transitionCanvasGroup = Panels[1].GetComponent<CanvasGroup>();
+        CanvasGroup transitionCanvasGroup2 = Panels[2].GetComponent<CanvasGroup>();
         time_left = PlayerPrefs.GetFloat("Target score", time_left);
         scrollSpeed = PlayerPrefs.GetFloat("Target scroll", scrollSpeed);
         meteorSpawnFrequency = PlayerPrefs.GetFloat("Target frequency", meteorSpawnFrequency);
         meteorSpeed = PlayerPrefs.GetInt("Target speed", meteorSpeed);
-        StartCoroutine(Timer());
         timer_bar.maxValue = time_left;
     }
-
+    public void StartLaunching()
+    {
+        StartCoroutine(SpawnMeteorites());
+        StartCoroutine(Timer());
+    }
+public void Pause()
+    {
+        spaceship.SetActive(false);
+        StopCoroutine(SpawnMeteorites()); // Stop spawning new meteorites
+        foreach (GameObject meteorite in spawnedMeteorites)
+        {
+            Destroy(meteorite); // Destroy all spawned meteorites
+        }
+        spawnedMeteorites.Clear(); // Clear the list of spawned meteorites
+    }
+        public void UnPause()
+    {
+        spaceship.SetActive(true);
+        StartCoroutine(SpawnMeteorites());
+        StartCoroutine(Timer());
+    }
     void Update()
     {
         timer.text = time_left.ToString("F1");
@@ -59,7 +87,44 @@ public class FlyGame : MonoBehaviour
         float newPosition2 = Mathf.Repeat(Time.time * scrollSpeed, startPosition2 - startPosition1);
         picture2.transform.position = new Vector3(picture2.transform.position.x, startPosition2 - newPosition2, picture2.transform.position.z);
     }
+        IEnumerator FadeOutTransition()
+    {
+        CanvasGroup transitionCanvasGroup3 = Panels[0].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup3.alpha = Mathf.Lerp(1f, 0f, timer);
+            yield return null;
+        }
 
+        Panels[0].SetActive(false); // Set transition inactive after fading out
+        yield return new WaitForSeconds(0.2f); // Wait a bit before fading in
+
+        StartCoroutine(FadeInTransition()); // Start fading in
+    }
+        IEnumerator FadeInTransition()
+    {
+        CanvasGroup transitionCanvasGroup = Panels[1].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup.alpha = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
+        }
+    }
+            IEnumerator FadeInTransition2()
+    {
+        CanvasGroup transitionCanvasGroup2 = Panels[2].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup2.alpha = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
+        }
+    }
 public void MoveLeft()
 {
     Vector3 targetPosition = new Vector3(Mathf.Max(spaceship.transform.position.x - 1f, -2f), spaceship.transform.position.y, spaceship.transform.position.z);
@@ -76,7 +141,7 @@ public void MoveRight()
     {
         if (other.gameObject.CompareTag("Meteorite"))
         {
-            // Reduce health while meteorite is in trigger zone
+            StartCoroutine(ShowBangEffect());
             health -= healthDecreaseRate;
             SFX.PlayOneShot(clips[2]);
             if (health <= 0f)
@@ -84,10 +149,29 @@ public void MoveRight()
                 SFX.PlayOneShot(clips[1]);
                 Panels[0].SetActive(false);
                 Panels[1].SetActive(true);
-                Time.timeScale = 0f;
+                transform.position = new Vector3 (-10, -10, 0);
+                StartCoroutine(FadeInTransition());
             }
         }
     }
+    IEnumerator ShowBangEffect()
+{
+    SpriteRenderer bangRenderer = bang.GetComponent<SpriteRenderer>();
+    Color color = bangRenderer.color;
+    color.a = 1f; // Set the alpha to 1
+    bangRenderer.color = color;
+
+    // Smoothly fade out the bang effect
+    float timer = 0f;
+    while (timer < 1f)
+    {
+        timer += Time.deltaTime * 2f; // Adjust the speed of the fade here
+        color.a = Mathf.Lerp(1f, 0f, timer);
+        bangRenderer.color = color;
+        yield return null;
+    }
+}
+
 
     IEnumerator Timer()
     {
@@ -100,7 +184,14 @@ public void MoveRight()
                 SFX.PlayOneShot(clips[0]);
                 Panels[0].SetActive(false);
                 Panels[2].SetActive(true);
-                Time.timeScale = 0f;
+                transform.position = new Vector3 (-10, -10, 0);
+                StopCoroutine(SpawnMeteorites()); // Stop spawning new meteorites
+        foreach (GameObject meteorite in spawnedMeteorites)
+        {
+            Destroy(meteorite); // Destroy all spawned meteorites
+        }
+        spawnedMeteorites.Clear(); // Clear the list of spawned meteorites
+                StartCoroutine(FadeInTransition2());
             }
         }
     }
@@ -116,6 +207,7 @@ public void MoveRight()
             {
                 Vector3 spawnPosition = new Vector3(RandomXPosition(), 7f, 0f);
                 GameObject meteorite = Instantiate(meteoritePrefab, spawnPosition, Quaternion.identity);
+                spawnedMeteorites.Add(meteorite);
                 StartCoroutine(MoveMeteorite(meteorite));
             }
 

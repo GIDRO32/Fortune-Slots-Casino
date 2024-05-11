@@ -24,9 +24,11 @@ public class SlotMachine : MonoBehaviour
     public AudioSource spinning;
     public AudioSource sounds;
     public AudioClip[] sound_array;
+    public GameObject NotEnoughPopup;
 
 void Start()
     {
+        NotEnoughPopup.SetActive(false);
         launchButton.onClick.AddListener(ToggleSpinning);
         gems = PlayerPrefs.GetInt("Gems", gems);
         InitializeSlots();
@@ -113,6 +115,8 @@ void ToggleSpinning()
         }
         else if(!isSpinning && gems < levels[level_chosen])
         {
+            NotEnoughPopup.SetActive(true);
+            StartCoroutine("MessageHang");
             sounds.PlayOneShot(sound_array[3]);
             Debug.Log("Not enough gems!");
         }
@@ -130,7 +134,14 @@ void ToggleSpinning()
             }
         }
     }
-
+    IEnumerator MessageHang()
+    {
+            for(float f = 1f; f >= -0.2f; f -= 0.2f)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+            NotEnoughPopup.SetActive(false);
+    }
  IEnumerator SpinSlots()
     {
         while (isSpinning && stopCount < rows.Count)

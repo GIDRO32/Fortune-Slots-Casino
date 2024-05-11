@@ -30,22 +30,55 @@ public class FlyGameEndless : MonoBehaviour
     public Text GameOverMessage;
     public AudioSource SFX;
     public AudioClip[] clips;
+        private List<GameObject> spawnedMeteorites = new List<GameObject>();
+    public SpriteRenderer bang;
+    
 
     void Start()
     {
-        Time.timeScale = 0f;
+        CanvasGroup transitionCanvasGroup = Panels[0].GetComponent<CanvasGroup>();
+        CanvasGroup transitionCanvasGroup2 = Panels[1].GetComponent<CanvasGroup>();
+        if(bang != null)
+{
+    Color spriteColor = bang.color;
+        spriteColor.a = 0f; // Set alpha to 0
+        bang.color = spriteColor;
+}
         Panels[0].SetActive(true);
         Panels[1].SetActive(false);
         Panels[2].SetActive(false);
+        highscore = PlayerPrefs.GetFloat("Fly Record", highscore);
+    }
+    public void Pause()
+    {
+        spaceship.SetActive(false);
+        StopCoroutine(SpawnMeteorites()); // Stop spawning new meteorites
+        StopCoroutine(IncreaseSpeedOverTime());
+        StopCoroutine(FrequencyChange());
+        StopCoroutine(Timer());
+        foreach (GameObject meteorite in spawnedMeteorites)
+        {
+            Destroy(meteorite); // Destroy all spawned meteorites
+        }
+        spawnedMeteorites.Clear(); // Clear the list of spawned meteorites
+    }
+        public void UnPause()
+    {
+        spaceship.SetActive(true);
         StartCoroutine(SpawnMeteorites());
         StartCoroutine(IncreaseSpeedOverTime());
         StartCoroutine(FrequencyChange());
-        highscore = PlayerPrefs.GetFloat("Fly Record", highscore);
+        StartCoroutine(Timer());
     }
-
+        public void StartLaunching()
+    {
+        StartCoroutine(SpawnMeteorites());
+        StartCoroutine(IncreaseSpeedOverTime());
+        StartCoroutine(FrequencyChange());
+        StartCoroutine(Timer());
+    }
     void Update()
     {
-        time_passed += Time.deltaTime;
         health_counter.text = health.ToString("F1");
         timer.text = time_passed.ToString("F0");
         health_bar.value = health;
@@ -58,7 +91,14 @@ public class FlyGameEndless : MonoBehaviour
         float newPosition2 = Mathf.Repeat(Time.time * scrollSpeed, startPosition2 - startPosition1);
         picture2.transform.position = new Vector3(picture2.transform.position.x, startPosition2 - newPosition2, picture2.transform.position.z);
     }
-
+    IEnumerator Timer()
+    {
+        while(health > 0)
+        {
+            time_passed += Time.deltaTime;
+            yield return null;
+        }
+    }
     public void MoveLeft()
     {
         Vector3 targetPosition = new Vector3(Mathf.Max(spaceship.transform.position.x - 1f, -2f), spaceship.transform.position.y, spaceship.transform.position.z);
@@ -78,13 +118,15 @@ public class FlyGameEndless : MonoBehaviour
             SFX.PlayOneShot(clips[1]);
             // Reduce health while meteorite is in trigger zone
             health -= healthDecreaseRate;
+            StartCoroutine(ShowBangEffect());
             if (health <= 0f)
             {
+                StopCoroutine(Timer());
+                transform.position = new Vector3 (-10, -10, 0);
                 SFX.PlayOneShot(clips[0]);
                 GameOverMessage.text = "Game Over";
                 Panels[0].SetActive(false);
                 Panels[1].SetActive(true);
-                Time.timeScale = 0f;
                 if(time_passed > highscore)
                 {
                     GameOverMessage.text = "NEW RECORD!";
@@ -104,6 +146,50 @@ public class FlyGameEndless : MonoBehaviour
             }
         }
     }
+            IEnumerator FadeOutTransition()
+    {
+        CanvasGroup transitionCanvasGroup3 = Panels[0].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup3.alpha = Mathf.Lerp(1f, 0f, timer);
+            yield return null;
+        }
+
+        Panels[0].SetActive(false); // Set transition inactive after fading out
+        yield return new WaitForSeconds(0.2f); // Wait a bit before fading in
+
+        StartCoroutine(FadeInTransition()); // Start fading in
+    }
+        IEnumerator FadeInTransition()
+    {
+        CanvasGroup transitionCanvasGroup = Panels[1].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup.alpha = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
+        }
+    }
+        IEnumerator ShowBangEffect()
+{
+    SpriteRenderer bangRenderer = bang.GetComponent<SpriteRenderer>();
+    Color color = bangRenderer.color;
+    color.a = 1f; // Set the alpha to 1
+    bangRenderer.color = color;
+
+    // Smoothly fade out the bang effect
+    float timer = 0f;
+    while (timer < 1f)
+    {
+        timer += Time.deltaTime * 2f; // Adjust the speed of the fade here
+        color.a = Mathf.Lerp(1f, 0f, timer);
+        bangRenderer.color = color;
+        yield return null;
+    }
+}
 
     IEnumerator SpawnMeteorites()
     {
@@ -114,10 +200,10 @@ public class FlyGameEndless : MonoBehaviour
 
             for (int i = 0; i < meteorCount; i++)
             {
-                // Spawn either a meteorite or a heart with a 5% chance
                 GameObject prefab = Random.Range(0, 100) < 5 ? heartPrefab : meteoritePrefab;
                 Vector3 spawnPosition = new Vector3(RandomXPosition(), 7f, 0f);
                 GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                spawnedMeteorites.Add(obj);
                 StartCoroutine(MoveObject(obj));
             }
 

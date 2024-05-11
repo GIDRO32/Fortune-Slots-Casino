@@ -116,7 +116,7 @@ public void ResetPurchases()
             if (buyButton != null)
             {
                 buyButton.interactable = true;
-                buyButton.transform.GetChild(0).GetComponent<Text>().text = "Buy";
+                buyButton.transform.GetChild(0).GetComponent<Text>().text = "Get";
             }
         }
     }

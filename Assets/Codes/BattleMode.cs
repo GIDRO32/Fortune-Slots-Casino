@@ -35,6 +35,9 @@ public class BattleMode : MonoBehaviour
 
     void Start()
     {
+        CanvasGroup transitionCanvasGroup3 = panels[0].GetComponent<CanvasGroup>();
+        CanvasGroup transitionCanvasGroup = panels[1].GetComponent<CanvasGroup>();
+        CanvasGroup transitionCanvasGroup2 = panels[2].GetComponent<CanvasGroup>();
         energy = PlayerPrefs.GetInt("energy", energy);
         panels[0].SetActive(true);
         panels[1].SetActive(false);
@@ -87,9 +90,49 @@ public class BattleMode : MonoBehaviour
                 sounds.PlayOneShot(clips[0]);
                 panels[1].SetActive(true);
                 panels[0].SetActive(false);
+                StartCoroutine(FadeOutTransition());
+                StartCoroutine(FadeInTransition());
                 return;
                 }
             }
+        }
+    }
+        IEnumerator FadeOutTransition()
+    {
+        CanvasGroup transitionCanvasGroup3 = panels[0].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup3.alpha = Mathf.Lerp(1f, 0f, timer);
+            yield return null;
+        }
+
+        panels[0].SetActive(false); // Set transition inactive after fading out
+        yield return new WaitForSeconds(0.2f); // Wait a bit before fading in
+
+        StartCoroutine(FadeInTransition()); // Start fading in
+    }
+        IEnumerator FadeInTransition()
+    {
+        CanvasGroup transitionCanvasGroup = panels[1].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup.alpha = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
+        }
+    }
+            IEnumerator FadeInTransition2()
+    {
+        CanvasGroup transitionCanvasGroup2 = panels[2].GetComponent<CanvasGroup>();
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime * 5f; // Adjust the speed of the fade here
+            transitionCanvasGroup2.alpha = Mathf.Lerp(0f, 1f, timer);
+            yield return null;
         }
     }
 
@@ -263,34 +306,15 @@ if (iconCounts[0] == 2) // If any 2 slots have the icon for Shield effect
             playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
         }
     }
-                else if (iconCounts[7] == 2) // If any 2 slots have the icon for Nectar effect
-    {
-        sounds.PlayOneShot(clips[1]);
-        PlayerUnits[Random.Range(0, PlayerUnits.Length)].RandomAction();
-                foreach (UnitBattle playerUnit in PlayerUnits)
-        {
-            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
-        }
-        
-    }
-    else if (iconCounts[7] == 3) // If all 3 slots have the icon for Nectar effect
-    {
-        sounds.PlayOneShot(clips[1]);
-        foreach (UnitBattle playerUnit in PlayerUnits)
-        {
-            playerUnit.RandomAction();
-            playerUnit.enemyUnit = targets[System.Array.IndexOf(PlayerUnits, playerUnit)];
-        }
-    }
-    else if (iconCounts[8] == 2) // If any 2 slots have the icon for Nectar effect
+    else if (iconCounts[7] == 2) // If any 2 slots have the icon for Nectar effect
     {
         life_tokens++;
     }
-    else if (iconCounts[8] == 3) // If all 3 slots have the icon for Nectar effect
+    else if (iconCounts[7] == 3) // If all 3 slots have the icon for Nectar effect
     {
         life_tokens += 5;
     }
-    else if (iconCounts[9] == 2) // If any 2 slots have the icon for Nectar effect
+    else if (iconCounts[8] == 2) // If any 2 slots have the icon for Nectar effect
     {
         List<UnitBattle> activeUnits = GetActivePlayerUnits();
         if (activeUnits.Count > 0)
@@ -299,7 +323,7 @@ if (iconCounts[0] == 2) // If any 2 slots have the icon for Shield effect
             selectedUnit.Attack(); // Apply Attack() to one random active player Unit
         }
     }
-    else if (iconCounts[9] == 3) // If all 3 slots have the icon for Nectar effect
+    else if (iconCounts[8] == 3) // If all 3 slots have the icon for Nectar effect
     {
         // Apply Nectar effect on all player Units
         foreach (UnitBattle playerUnit in PlayerUnits)
@@ -328,6 +352,8 @@ public void AttackHealthBar(int damage) {
             PlayerPrefs.SetInt("energy", energy);
             panels[0].SetActive(false);
             panels[2].SetActive(true);
+            StartCoroutine(FadeOutTransition());
+            StartCoroutine(FadeInTransition2());
         }
     }
 

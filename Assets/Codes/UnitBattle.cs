@@ -163,8 +163,9 @@ public void Nectar()
     if (health <= 0) return;
     if (enemyUnit == null || enemyUnit.GetComponent<UnitBattle>().health <= 0)
     {
-        BattleMode.Instance.AttackHealthBar(2 * health); // Double damage to the health bar
-        this.ChangeHealth(health - 2 * health, true); // Specify it's a health bar attack
+        int damageToDeal = Mathf.Min(2 * health, enemyUnit.GetComponent<UnitBattle>().health); // Calculate the damage, ensuring it doesn't exceed the enemy's health
+        BattleMode.Instance.AttackHealthBar(damageToDeal); // Double damage to the health bar
+        this.ChangeHealth(health - damageToDeal, true); // Specify it's a health bar attack
         StartCoroutine(MoveTowardsTarget(enemyUnit.transform.position, () => {StartCoroutine(MoveTowardsTarget(startPosition, null));}));
     }
     else
@@ -192,24 +193,6 @@ UnitBattle enemyBattleScript = enemyUnit.GetComponent<UnitBattle>();
             UpdateHealthText(); // Ensure health text is updated after battle
         }
 }
-    public void RandomAction()
-    {
-        // Chooses one of the three actions randomly
-        int randomAction = UnityEngine.Random.Range(0, 3);
-        switch (randomAction)
-        {
-            case 0:
-            int[] healthValue = {3, 5, 7, 10, 15};
-                AddHealth(healthValue[UnityEngine.Random.Range(0, 4)]); // Adds 1 to 10 health randomly
-                break;
-            case 1:
-                Shield();
-                break;
-            case 2:
-                Nectar();
-                break;
-        }
-    }
     private void SetAsDefeated()
     {
         health = 0; // Update health to indicate defeat
