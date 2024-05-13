@@ -12,6 +12,8 @@ public class Loading : MonoBehaviour
     {
         transition.SetActive(true); // Set transition active at start
         StartCoroutine(FadeOutTransition());
+
+        Application.targetFrameRate = 60;
     }
 
     IEnumerator LoadSceneAsync()
