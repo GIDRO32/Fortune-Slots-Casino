@@ -1598,6 +1598,7 @@ GameObject:
   - component: {fileID: 488089914}
   - component: {fileID: 488089913}
   - component: {fileID: 488089915}
+  - component: {fileID: 488089916}
   m_Layer: 0
   m_Name: MenuHandler
   m_TagString: Untagged
@@ -1656,6 +1657,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fly_record: {fileID: 1764948331}
+--- !u!114 &488089916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488089912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada5f5d0d1dd81847abe849e98672c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorial: {fileID: 1164104137}
+  menu: {fileID: 1101228919}
 --- !u!1 &504297774
 GameObject:
   m_ObjectHideFlags: 0
@@ -9374,7 +9389,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   m_Sprite: {fileID: 801194963, guid: 00de2654171b05746a53c38cef3d0ffd, type: 3}
+=======
+  m_Sprite: {fileID: -1392682221, guid: 00de2654171b05746a53c38cef3d0ffd, type: 3}
+>>>>>>> Stashed changes
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

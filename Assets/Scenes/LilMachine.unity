@@ -236,10 +236,17 @@ RectTransform:
   - {fileID: 220215939}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -2061.3}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &33051873
 GameObject:
@@ -562,7 +569,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -216.49998}
+=======
+  m_AnchoredPosition: {x: 0, y: -180}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49614958
@@ -602,7 +613,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -766,17 +781,30 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87750601}
+<<<<<<< Updated upstream
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+>>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+<<<<<<< Updated upstream
   m_Father: {fileID: 553941070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.00002408}
   m_SizeDelta: {x: 432.6, y: 144}
+=======
+  m_Father: {fileID: 162117968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 740}
+  m_SizeDelta: {x: 586.9, y: 144}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87750603
 MonoBehaviour:
@@ -800,18 +828,30 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 50
+=======
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+>>>>>>> Stashed changes
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< Updated upstream
   m_Text: 0
+=======
+  m_Text: 'Enemy HP: 0'
+>>>>>>> Stashed changes
 --- !u!222 &87750604
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -852,10 +892,17 @@ RectTransform:
   - {fileID: 1380238272}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -1502.7}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &109261638
 GameObject:
@@ -1000,7 +1047,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -1908,11 +1959,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2161,19 +2220,27 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2061933559}
+<<<<<<< Updated upstream
   - {fileID: 114430107}
   - {fileID: 1608332120}
   - {fileID: 1415528966}
   - {fileID: 873263326}
   - {fileID: 191512572}
   - {fileID: 351630404}
+=======
+>>>>>>> Stashed changes
   - {fileID: 1151369676}
   - {fileID: 1922005866}
   - {fileID: 2005161683}
   - {fileID: 298481067}
   - {fileID: 1242089874}
   - {fileID: 1539162219}
+<<<<<<< Updated upstream
   - {fileID: 553941070}
+=======
+  - {fileID: 357587930}
+  - {fileID: 87750602}
+>>>>>>> Stashed changes
   m_Father: {fileID: 1782532968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2262,7 +2329,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -3162,11 +3233,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3607,10 +3686,17 @@ RectTransform:
   - {fileID: 1098341564}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -571.69995}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &251221543
 GameObject:
@@ -3722,7 +3808,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: 216.49994}
+=======
+  m_AnchoredPosition: {x: 0, y: 170}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252750490
@@ -3762,7 +3852,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -4000,10 +4094,17 @@ RectTransform:
   - {fileID: 1878241795}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -199.29999}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &344994943
 GameObject:
@@ -4156,10 +4257,17 @@ RectTransform:
   - {fileID: 193635446}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -1130.2999}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &351630403
 PrefabInstance:
@@ -4167,7 +4275,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -5067,11 +5179,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5145,6 +5265,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+=======
+--- !u!1 &357587929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357587930}
+  - component: {fileID: 357587932}
+  - component: {fileID: 357587931}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &357587930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357587929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 162117968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00000023842, y: 739}
+  m_SizeDelta: {x: 381.81, y: 113.57}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &357587931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357587929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 503686390, guid: 00de2654171b05746a53c38cef3d0ffd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &357587932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357587929}
+  m_CullTransparentMesh: 1
+>>>>>>> Stashed changes
 --- !u!1 &386826809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,6 +6109,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530448602}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &553941069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6001,6 +6200,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+>>>>>>> Stashed changes
 --- !u!1 &559991963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6439,7 +6640,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -216.5}
+=======
+  m_AnchoredPosition: {x: 0, y: -180}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650895763
@@ -6479,7 +6684,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -7129,7 +7338,11 @@ MonoBehaviour:
   counters:
   - {fileID: 1951473726}
   - {fileID: 87750603}
+<<<<<<< Updated upstream
   healthbar_appear: {fileID: 553941071}
+=======
+  healthbar_appear: {fileID: 0}
+>>>>>>> Stashed changes
   panels:
   - {fileID: 1782532964}
   - {fileID: 344994943}
@@ -7261,6 +7474,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815134173}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &838277600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,6 +7511,8 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &861560175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,7 +7598,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -8286,11 +8506,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9085,10 +9313,17 @@ RectTransform:
   - {fileID: 130544204}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -1875.1}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1151369675
 GameObject:
@@ -9846,6 +10081,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283003018}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
 --- !u!1 &1289392263
 GameObject:
   m_ObjectHideFlags: 0
@@ -9921,6 +10157,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289392263}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1298918780 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8363781233161594204, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
@@ -10289,10 +10527,17 @@ RectTransform:
   - {fileID: 6880158}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -1316.5}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1415528965
 PrefabInstance:
@@ -10300,7 +10545,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -11212,11 +11461,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11336,7 +11593,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: 216.5}
+=======
+  m_AnchoredPosition: {x: 0, y: 170}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1432338993
@@ -11376,7 +11637,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -11613,6 +11878,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482306107}
   m_CullTransparentMesh: 1
+<<<<<<< Updated upstream
+=======
+--- !u!1 &1496299678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496299679}
+  m_Layer: 5
+  m_Name: Cards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1496299679
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496299678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 114430107}
+  - {fileID: 1608332120}
+  - {fileID: 1415528966}
+  - {fileID: 873263326}
+  - {fileID: 191512572}
+  - {fileID: 351630404}
+  m_Father: {fileID: 1782532968}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> Stashed changes
 --- !u!1 &1539162218
 GameObject:
   m_ObjectHideFlags: 0
@@ -11824,10 +12133,17 @@ RectTransform:
   - {fileID: 1343655178}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -13.099998}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1579369132
 GameObject:
@@ -12131,10 +12447,17 @@ RectTransform:
   - {fileID: 1586991225}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -385.5}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1586991224
 GameObject:
@@ -12223,7 +12546,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 162117968}
+=======
+    m_TransformParent: {fileID: 1496299679}
+>>>>>>> Stashed changes
     m_Modifications:
     - target: {fileID: -8124152072073126938, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: blank
@@ -13127,11 +13454,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.x
+<<<<<<< Updated upstream
       value: 215.72
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 300.95
+=======
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 270
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8363781233161594207, guid: 92ba33ff6c28d3444b7594d65eb7e6f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13243,10 +13578,17 @@ RectTransform:
   - {fileID: 715978310}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -1688.8999}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1633072867
 PrefabInstance:
@@ -13905,6 +14247,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 162117968}
+<<<<<<< Updated upstream
+=======
+  - {fileID: 1496299679}
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13959,7 +14305,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: 216.5}
+=======
+  m_AnchoredPosition: {x: 0, y: 170}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790440536
@@ -13999,7 +14349,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -14051,10 +14405,17 @@ RectTransform:
   - {fileID: 916782543}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -944.1}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1822006924
 GameObject:
@@ -15037,6 +15398,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< Updated upstream
 --- !u!1 &1934773585
 GameObject:
   m_ObjectHideFlags: 0
@@ -15112,6 +15474,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934773585}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1935423475
 GameObject:
   m_ObjectHideFlags: 0
@@ -15640,10 +16004,17 @@ RectTransform:
   - {fileID: 421190498}
   m_Father: {fileID: 2095368154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 614.15497, y: -757.89996}
   m_SizeDelta: {x: 0.7, y: 186.2}
+=======
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+>>>>>>> Stashed changes
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2061933558
 GameObject:
@@ -16001,7 +16372,11 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+<<<<<<< Updated upstream
   m_AnchoredPosition: {x: 0, y: -216.49998}
+=======
+  m_AnchoredPosition: {x: 0, y: -180}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142696478
@@ -16041,7 +16416,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd3cbb961d80c37429f3ad65d8b37935, type: 3}
+<<<<<<< Updated upstream
     m_FontSize: 80
+=======
+    m_FontSize: 65
+>>>>>>> Stashed changes
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0

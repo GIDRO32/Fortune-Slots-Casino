@@ -22,7 +22,6 @@ public class BattleMode : MonoBehaviour
     public Vector2[] EnemyUnitPositions;
     public Text[] counters;
     private int enemy_healthbar = 50;
-    public Slider healthbar_appear;
     public static BattleMode Instance;
     public GameObject[] panels;
     public int energy = 0; // Energy gained from playing BattleMode
@@ -386,8 +385,7 @@ public void AttackHealthBar(int damage) {
     void Update()
     {
         counters[0].text = life_tokens.ToString();
-        counters[1].text = "Enemy: " +enemy_healthbar.ToString();
-        healthbar_appear.value = enemy_healthbar;
+        counters[1].text = "Enemy HP: " + enemy_healthbar.ToString();
         energy_counter.text = "+ " + energy.ToString() + " energy";
     }
     bool AllPlayersDefeated() {
